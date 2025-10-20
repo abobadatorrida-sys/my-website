@@ -1,1 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Abobada Torrida | Lisbon Business Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        :root {
+            --primary-color: #4FC3F7; /* Sky Blue */
+            --secondary-color: #0288D1; /* Darker Sky Blue */
+            --accent-color: #FFFFFF; /* White */
+            --text-color: #333333;
+            --light-bg: #F5F9FC;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--accent-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 0;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+            border-radius: 4px;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 20px 0;
+            background-color: var(--light-bg);
+            margin-top: 70px;
+        }
+
+        .breadcrumb ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .breadcrumb ul li {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .breadcrumb ul li:after {
+            content: '/';
+            margin-left: 10px;
+            color: #999;
+        }
+
+        .breadcrumb ul li:last-child:after {
+            content: '';
+        }
+
+        .breadcrumb ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* About Hero Section */
+        .about-hero {
+            background: linear-gradient(135deg, rgba(79, 195, 247, 0.9) 0%, rgba(2, 136, 209, 0.9) 100%), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .about-hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Company Overview */
+        .company-overview {
+            padding: 80px 0;
+        }
+
+        .overview-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .overview-text {
+            flex: 1;
+        }
+
+        .overview-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .overview-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Values Section */
+        .values {
+            background-color: var(--light-bg);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .value-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-image {
+            height: 250px;
+            background-color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .member-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .member-info h3 {
+            margin-bottom: 5px;
+        }
+
+        .member-info p {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        /* Services Overview */
+        .services-overview {
+            background-color: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+        }
+
+        /* Why Choose Us */
+        .why-choose-us {
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .feature-icon {
+            font-size: 30px;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .feature-content h3 {
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin-right: 30px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .overview-content,
+            .footer-content {
+                flex-direction: column;
+            }
+            
+            .footer-column {
+                flex: 1 0 50%;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                display: none;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .about-hero h1 {
+                font-size: 36px;
+            }
+            
+            .about-hero p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .footer-column {
+                flex: 1 0 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Abobada <span>Torrida</span></h1>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="consultancy.html">Consultancy Services</a>
+                            <a href="it-services.html">IT Services</a>
+                            <a href="transportation.html">Transportation Services</a>
+                            <a href="travel-tour.html">Travel & Tour Services</a>
+                            <a href="import-export.html">Import & Export Services</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>About Us</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About Abobada Torrida</h1>
+            <p>Your Trusted Business Partner in Lisbon, Portugal</p>
+            <a href="contact.html" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <!-- Company Overview -->
+    <section class="company-overview">
+        <div class="container">
+            <div class="overview-content">
+                <div class="overview-text">
+                    <h2>Your Premier Business Solutions Provider</h2>
+                    <p>Abobada Torrida is a distinguished company based in the vibrant city of Lisbon, Portugal, offering comprehensive business solutions to clients across the globe. With our strategic location in one of Europe's most dynamic business hubs, we leverage local expertise with international perspectives to deliver exceptional value.</p>
+                    <p>Founded on the principles of integrity, excellence, and innovation, we have established ourselves as a trusted partner for businesses seeking to navigate complex challenges and capitalize on emerging opportunities. Our multidisciplinary approach combines deep industry knowledge with practical business acumen.</p>
+                    <p>We pride ourselves on building long-term relationships with our clients, understanding that their success is our success. Our commitment to delivering measurable results has earned us a reputation for reliability and excellence in all our service areas.</p>
+                    <a href="contact.html" class="btn">Contact Our Team</a>
+                </div>
+                <div class="overview-image">
+                    <div style="width:100%; height:400px; background:linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); display:flex; align-items:center; justify-content:center; color:white; font-size:24px;">
+                        Lisbon Office
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Values</h2>
+                <p>The principles that guide everything we do</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We conduct business with the highest ethical standards, ensuring transparency and honesty in all our interactions with clients and partners.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We embrace creative thinking and innovative solutions to address complex business challenges and drive sustainable growth.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We believe in the power of partnership, working closely with our clients to understand their unique needs and co-create solutions.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>We are committed to delivering exceptional quality in every service we provide, continuously striving to exceed expectations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Comprehensive Services</h2>
+                <p>End-to-end business solutions tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Expert Consultancy Services</h3>
+                    <p>Our team of seasoned consultants provides strategic guidance across all business functions. We offer market analysis, business strategy development, operational optimization, and change management support to help you achieve your objectives.</p>
+                    <a href="consultancy.html" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Comprehensive IT Solutions</h3>
+                    <p>From software development and system integration to cybersecurity and digital transformation, our IT services help businesses leverage technology for competitive advantage and operational efficiency.</p>
+                    <a href="it-services.html" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Reliable Transportation Services</h3>
+                    <p>We provide efficient and dependable transportation solutions for both goods and personnel. Our nationwide coverage and international connections ensure your logistics needs are met with precision and reliability.</p>
+                    <a href="transportation.html" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Travel & Tour Experiences</h3>
+                    <p>Our travel and tour services offer customized experiences for both leisure and business travelers. From corporate travel management to unique cultural tours, we create memorable journeys tailored to your preferences.</p>
+                    <a href="travel-tour.html" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Import & Export Solutions</h3>
+                    <p>We streamline international trade with comprehensive import and export services. Our expertise in customs clearance, logistics, and market entry strategies helps businesses expand their global footprint efficiently.</p>
+                    <a href="import-export.html" class="btn">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Legal Advisory Partnership</h3>
+                    <p>Through our collaboration with leading legal firms, we provide expert legal guidance on business formation, compliance, contracts, and regulatory matters, ensuring your operations remain compliant and protected.</p>
+                    <a href="contact.html" class="btn">Get Legal Support</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-us">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Abobada Torrida</h2>
+                <p>What sets us apart from the competition</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Expert Team</h3>
+                        <p>Our multidisciplinary team brings together professionals with diverse backgrounds and extensive industry experience.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Strategic Location</h3>
+                        <p>Based in Lisbon, Portugal, we have access to European markets and international business networks.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Integrated Solutions</h3>
+                        <p>We offer comprehensive services that work together seamlessly to address all your business needs.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Client-Centric Approach</h3>
+                        <p>We prioritize understanding your unique challenges and tailoring solutions to your specific requirements.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Proven Results</h3>
+                        <p>Our track record of successful projects and satisfied clients speaks to our commitment to delivering value.</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Legal Compliance</h3>
+                        <p>Our partnership with legal firms ensures all our services adhere to the highest standards of compliance and regulation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Leadership Team</h2>
+                <p>Meet the experts behind Abobada Torrida</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        CEO & Founder
+                    </div>
+                    <div class="member-info">
+                        <h3>Miguel Silva</h3>
+                        <p>Chief Executive Officer</p>
+                        <p>20+ years in business consultancy and international trade</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        Operations Director
+                    </div>
+                    <div class="member-info">
+                        <h3>Ana Costa</h3>
+                        <p>Director of Operations</p>
+                        <p>Specialized in logistics and transportation management</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        IT Director
+                    </div>
+                    <div class="member-info">
+                        <h3>Carlos Mendes</h3>
+                        <p>IT Solutions Director</p>
+                        <p>Expert in digital transformation and software development</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        Legal Advisor
+                    </div>
+                    <div class="member-info">
+                        <h3>Isabel Rodrigues</h3>
+                        <p>Legal Partnerships Director</p>
+                        <p>Connecting clients with expert legal counsel</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Abobada Torrida</h3>
+                    <p>Your trusted partner for comprehensive business solutions in Lisbon, Portugal.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="consultancy.html">Consultancy Services</a></li>
+                        <li><a href="it-services.html">IT Services</a></li>
+                        <li><a href="transportation.html">Transportation Services</a></li>
+                        <li><a href="travel-tour.html">Travel & Tour Services</a></li>
+                        <li><a href="import-export.html">Import & Export Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Lisbon, Portugal</li>
+                        <li><i class="fas fa-phone"></i> +351 XXX XXX XXX</li>
+                        <li><i class="fas fa-envelope"></i> info@abobadatorrida.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Abobada Torrida. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Mobile Dropdown Toggle
+        document.querySelectorAll('.dropdown > a').forEach(function(dropdown) {
+            dropdown.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const dropdown = this.parentElement;
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.backgroundColor = 'var(--accent-color)';
+            }
+        });
+    </script>
+</body>
+</html>
