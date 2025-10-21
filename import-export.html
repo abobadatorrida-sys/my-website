@@ -1,1 +1,574 @@
+<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Import & Export Services - Abobada Torrida | Lisbon International Trade Experts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Add the same CSS as in about.html */
+        
+        /* Additional styles for import-export page */
+        .trade-benefits {
+            background: linear-gradient(135deg, var(--light-bg) 0%, #e3f2fd 100%);
+            padding: 60px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .process-steps {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .step-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 50px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -30px;
+            width: 60px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .trade-specialties {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+        }
+        
+        .specialty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .specialty-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .specialty-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .specialty-icon {
+            font-size: 30px;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .step:not(:last-child):after {
+                display: none;
+            }
+            
+            .step {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Abobada <span>Torrida</span></h1>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="consultancy.html">Consultancy Services</a>
+                            <a href="it-services.html">IT Services</a>
+                            <a href="transportation.html">Transportation Services</a>
+                            <a href="travel-tour.html">Travel & Tour Services</a>
+                            <a href="import-export.html">Import & Export Services</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li>Import & Export Services</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Service Detail Section -->
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-header">
+                <div class="service-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div>
+                    <h1>Import & Export Services</h1>
+                    <p>Your Gateway to Global Trade - Seamless International Commerce Solutions from Lisbon</p>
+                </div>
+            </div>
+
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Master Global Trade with Confidence</h2>
+                    <p>At Abobada Torrida, we transform the complexity of international trade into streamlined, profitable opportunities. Based in Lisbon – Portugal's strategic Atlantic gateway – we provide comprehensive import and export solutions that connect Portuguese businesses with global markets and bring international products to Portugal.</p>
+                    
+                    <p>Our expertise spans customs clearance, logistics, trade compliance, and market intelligence, ensuring your goods move seamlessly across borders while maximizing profitability and minimizing risks.</p>
+                    
+                    <!-- Trade Benefits Section -->
+                    <div class="trade-benefits">
+                        <div class="section-title">
+                            <h2>Why Partner with Us for International Trade?</h2>
+                        </div>
+                        <div class="benefits-grid">
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-file-contract"></i>
+                                </div>
+                                <h3>Expert Customs Clearance</h3>
+                                <p>Navigate complex customs procedures with our experienced team handling all documentation and compliance requirements.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <h3>Optimized Logistics</h3>
+                                <p>End-to-end logistics solutions with optimal routing, cost-effective shipping, and real-time tracking.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <h3>Trade Compliance</h3>
+                                <p>Stay compliant with international trade regulations, tariffs, and export control requirements.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>Market Intelligence</h3>
+                                <p>Access valuable insights on target markets, competition, and emerging trade opportunities.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Our Comprehensive Trade Services</h3>
+                    
+                    <div class="service-features">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-passport"></i>
+                            </div>
+                            <h4>Customs Brokerage</h4>
+                            <p>Complete customs clearance services including documentation preparation, duty calculation, and regulatory compliance for smooth border crossings.</p>
+                            <ul style="text-align: left; margin-top: 10px;">
+                                <li>Import/Export Declarations</li>
+                                <li>Duty & Tax Optimization</li>
+                                <li>Compliance Verification</li>
+                                <li>Documentation Management</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <h4>International Freight</h4>
+                            <p>Multi-modal transportation solutions including sea, air, and land freight with competitive pricing and reliable scheduling.</p>
+                            <ul style="text-align: left; margin-top: 10px;">
+                                <li>Sea Freight (FCL/LCL)</li>
+                                <li>Air Freight Services</li>
+                                <li>Land Transportation</li>
+                                <li>Intermodal Solutions</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-warehouse"></i>
+                            </div>
+                            <h4>Warehousing & Distribution</h4>
+                            <p>Secure storage facilities and efficient distribution networks to support your international supply chain operations.</p>
+                            <ul style="text-align: left; margin-top: 10px;">
+                                <li>Bonded Warehousing</li>
+                                <li>Inventory Management</li>
+                                <li>Order Fulfillment</li>
+                                <li>Last-Mile Delivery</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h4>Market Entry Strategy</h4>
+                            <p>Strategic guidance for businesses looking to enter new international markets or expand existing global operations.</p>
+                            <ul style="text-align: left; margin-top: 10px;">
+                                <li>Market Research</li>
+                                <li>Distribution Planning</li>
+                                <li>Partner Identification</li>
+                                <li>Risk Assessment</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-euro-sign"></i>
+                            </div>
+                            <h4>Trade Finance</h4>
+                            <p>Financial solutions to support international transactions including letters of credit, export financing, and payment security.</p>
+                            <ul style="text-align: left; margin-top: 10px;">
+                                <li>Letters of Credit</li>
+                                <li>Export Financing</li>
+                                <li>Payment Solutions</li>
+                                <li>Risk Management</li>
+                            </ul>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <h4>Legal & Compliance</h4>
+                            <p>Through our law firm partnerships, ensure complete legal compliance with international trade regulations and contracts.</p>
+                            <ul style="text-align: left; margin-top: 10px;">
+                                <li>Contract Review</li>
+                                <li>Regulatory Compliance</li>
+                                <li>Dispute Resolution</li>
+                                <li>Intellectual Property</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Trade Process Section -->
+                    <div class="process-steps">
+                        <div class="section-title">
+                            <h2>Our Streamlined Trade Process</h2>
+                            <p>From inquiry to delivery - a seamless journey</p>
+                        </div>
+                        <div class="step-container">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <h4>Consultation & Planning</h4>
+                                <p>Comprehensive assessment of your trade requirements and development of customized strategy</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <h4>Documentation & Compliance</h4>
+                                <p>Preparation of all required documents and ensuring regulatory compliance</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <h4>Logistics & Shipping</h4>
+                                <p>Arrangement of optimal transportation and handling of all shipping requirements</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">4</div>
+                                <h4>Customs Clearance</h4>
+                                <p>Expert handling of customs procedures and duty payments</p>
+                            </div>
+                            <div class="step">
+                                <div class="step-number">5</div>
+                                <h4>Delivery & Support</h4>
+                                <p>Final delivery to destination and ongoing trade support services</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trade Specialties -->
+                    <div class="trade-specialties">
+                        <div class="section-title">
+                            <h2>Portuguese Trade Specialties</h2>
+                            <p>Leading exports and strategic imports through Portugal</p>
+                        </div>
+                        <div class="specialty-grid">
+                            <div class="specialty-card">
+                                <div class="specialty-header">
+                                    <div class="specialty-icon">
+                                        <i class="fas fa-wine-bottle"></i>
+                                    </div>
+                                    <h3>Wines & Beverages</h3>
+                                </div>
+                                <p>Premium Portuguese wines (Port, Vinho Verde), olive oil, and specialty beverages for global markets with proper certification and quality assurance.</p>
+                            </div>
+                            <div class="specialty-card">
+                                <div class="specialty-header">
+                                    <div class="specialty-icon">
+                                        <i class="fas fa-fish"></i>
+                                    </div>
+                                    <h3>Seafood & Marine Products</h3>
+                                </div>
+                                <p>High-quality canned fish, fresh seafood, and marine products with expertise in cold chain logistics and international food safety standards.</p>
+                            </div>
+                            <div class="specialty-card">
+                                <div class="specialty-header">
+                                    <div class="specialty-icon">
+                                        <i class="fas fa-shoe-prints"></i>
+                                    </div>
+                                    <h3>Footwear & Fashion</h3>
+                                </div>
+                                <p>Portuguese leather goods, luxury shoes, textiles, and fashion accessories with established quality reputation in international markets.</p>
+                            </div>
+                            <div class="specialty-card">
+                                <div class="specialty-header">
+                                    <div class="specialty-icon">
+                                        <i class="fas fa-industry"></i>
+                                    </div>
+                                    <h3>Automotive & Components</h3>
+                                </div>
+                                <p>Automotive parts, molds, and industrial components from Portugal's growing manufacturing sector to global automotive industries.</p>
+                            </div>
+                            <div class="specialty-card">
+                                <div class="specialty-header">
+                                    <div class="specialty-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <h3>Technology & Innovation</h3>
+                                </div>
+                                <p>Import of advanced technology, electronics, and innovative products to support Portugal's digital transformation and tech growth.</p>
+                            </div>
+                            <div class="specialty-card">
+                                <div class="specialty-header">
+                                    <div class="specialty-icon">
+                                        <i class="fas fa-heart"></i>
+                                    </div>
+                                    <h3>Healthcare & Pharmaceuticals</h3>
+                                </div>
+                                <p>Import of medical equipment, pharmaceuticals, and healthcare products with strict regulatory compliance and quality control.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Key Trading Markets</h3>
+                    <p>We facilitate trade between Portugal and major global markets with established networks and expertise:</p>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-flag-eu"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>European Union</h4>
+                                <p>Seamless trade within EU single market with preferential treatment and established logistics networks.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-flag-usa"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>North America</h4>
+                                <p>Strong connections with US and Canadian markets, including expertise in FDA and cross-Atlantic logistics.</p>
+                            </div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-globe-americas"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Latin America</h4>
+                                <p>Historical and cultural ties with Portuguese-speaking countries and established trade routes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white; padding: 40px; border-radius: 10px; text-align: center; margin: 40px 0;">
+                        <h3 style="color: white;">Ready to Expand Your Global Reach?</h3>
+                        <p>Join hundreds of successful businesses that have grown internationally with our expert trade solutions. Let's discuss how we can help you navigate global markets.</p>
+                        <div style="display: flex; gap: 20px; justify-content: center; margin-top: 25px; flex-wrap: wrap;">
+                            <a href="contact.html" class="btn" style="background: white; color: var(--secondary-color);">Get Free Trade Consultation</a>
+                            <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">Request Shipping Quote</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-sidebar">
+                    <h3>Other Services</h3>
+                    <ul>
+                        <li><a href="consultancy.html">Consultancy Services</a></li>
+                        <li><a href="it-services.html">IT Services</a></li>
+                        <li><a href="transportation.html">Transportation Services</a></li>
+                        <li><a href="travel-tour.html">Travel & Tour Services</a></li>
+                    </ul>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3>Quick Trade Services</h3>
+                        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                            <h4>Customs Clearance</h4>
+                            <p>Fast and efficient customs processing</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 8px; margin-bottom: 15px;">
+                            <h4>Documentation Help</h4>
+                            <p>Complete document preparation service</p>
+                        </div>
+                        <div style="background: white; padding: 20px; border-radius: 8px;">
+                            <h4>Trade Consultation</h4>
+                            <p>Expert advice on international expansion</p>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3>🆓 Free Trade Assessment</h3>
+                        <p>Get a complimentary evaluation of your:</p>
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary-color); margin-right: 10px;"></i> Export Potential
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                            <i class="fas fa-check" style="color: var(--primary-color); margin-right: 10px;"></i> Import Requirements
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px;">
+                            <i class="fas fa-check" style="color: var(--primary-color); margin-right: 10px;"></i> Market Opportunities
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <h3>🌍 Popular Trade Routes</h3>
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                            <strong>Portugal → USA</strong><br>Wines, seafood, fashion
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                            <strong>EU → Portugal</strong><br>Technology, automotive parts
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 8px;">
+                            <strong>Portugal → Africa</strong><br>Industrial goods, construction materials
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <h3>📞 Urgent Shipment?</h3>
+                        <p>Need immediate assistance with time-sensitive shipments?</p>
+                        <div style="background: var(--primary-color); color: white; padding: 15px; border-radius: 8px; text-align: center; margin-top: 15px;">
+                            <i class="fas fa-clock" style="margin-right: 10px;"></i> Express Service Available
+                        </div>
+                        <a href="contact.html" class="btn" style="margin-top: 15px; display: block; text-align: center; background: var(--secondary-color);">Emergency Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Abobada Torrida</h3>
+                    <p>Your trusted partner for comprehensive business solutions in Lisbon, Portugal.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="consultancy.html">Consultancy Services</a></li>
+                        <li><a href="it-services.html">IT Services</a></li>
+                        <li><a href="transportation.html">Transportation Services</a></li>
+                        <li><a href="travel-tour.html">Travel & Tour Services</a></li>
+                        <li><a href="import-export.html">Import & Export Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Lisbon, Portugal</li>
+                        <li><i class="fas fa-phone"></i> +351 XXX XXX XXX</li>
+                        <li><i class="fas fa-envelope"></i> info@abobadatorrida.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Abobada Torrida. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add the same JavaScript as in about.html
+    </script>
+</body>
+</html>
