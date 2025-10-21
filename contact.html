@@ -1,1 +1,604 @@
+<link rel="stylesheet" href="style.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Abobada Torrida | Lisbon Business Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Add the same CSS as in about.html */
+        
+        /* Additional styles for contact page */
+        .contact-hero {
+            background: linear-gradient(135deg, rgba(79, 195, 247, 0.9) 0%, rgba(2, 136, 209, 0.9) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
 
+        .contact-methods {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-card-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+        }
+
+        .office-hours {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-top: 50px;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .hour-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .emergency-contact {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .map-section {
+            padding: 80px 0;
+        }
+
+        .map-container {
+            height: 400px;
+            background: var(--light-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-medium);
+            font-size: 18px;
+        }
+
+        .faq-section {
+            background-color: var(--light-bg);
+            padding: 80px 0;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 200px;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .contact-success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/351920317545" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>Abobada <span>Torrida</span></h1>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="consultancy.html">Consultancy Services</a>
+                            <a href="it-services.html">IT Services</a>
+                            <a href="transportation.html">Transportation Services</a>
+                            <a href="travel-tour.html">Travel & Tour Services</a>
+                            <a href="import-export.html">Import & Export Services</a>
+                        </div>
+                    </li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Contact Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1>Get In Touch With Us</h1>
+            <p>Ready to start your journey? We're here to help you succeed. Contact us today for expert guidance and comprehensive business solutions.</p>
+            <a href="#contact-form" class="btn" style="background: white; color: var(--secondary-color); margin-top: 20px;">Send Us a Message</a>
+        </div>
+    </section>
+
+    <!-- Contact Methods Section -->
+    <section class="contact-methods">
+        <div class="container">
+            <div class="section-title">
+                <h2>Multiple Ways to Reach Us</h2>
+                <p>Choose the method that works best for you</p>
+            </div>
+            
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone & WhatsApp</h3>
+                    <p>Speak directly with our experts for immediate assistance</p>
+                    <div style="margin-top: 20px;">
+                        <h4 style="color: var(--secondary-color);">+351 920 317 545</h4>
+                        <p style="margin: 10px 0;">Available for calls and WhatsApp messages</p>
+                        <a href="tel:+351920317545" class="btn" style="margin: 5px;">Call Now</a>
+                        <a href="https://wa.me/351920317545" class="btn" style="background: #25D366; margin: 5px;">WhatsApp</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>Send us your inquiries and we'll respond promptly</p>
+                    <div style="margin-top: 20px;">
+                        <h4 style="color: var(--secondary-color);">info@abobadatorrida.com</h4>
+                        <p style="margin: 10px 0;">We typically respond within 2-4 hours</p>
+                        <a href="mailto:info@abobadatorrida.com" class="btn" style="margin: 5px;">Send Email</a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-card-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Visit Our Office</h3>
+                    <p>Meet us in person at our Lisbon headquarters</p>
+                    <div style="margin-top: 20px;">
+                        <h4 style="color: var(--secondary-color);">Lisbon, Portugal</h4>
+                        <p style="margin: 10px 0;">Strategic location in Portugal's business hub</p>
+                        <a href="#map" class="btn" style="margin: 5px;">View Location</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Office Hours -->
+            <div class="office-hours">
+                <h3 style="text-align: center; margin-bottom: 30px;">Office Hours</h3>
+                <div class="hours-grid">
+                    <div>
+                        <h4>Business Hours</h4>
+                        <div class="hour-item">
+                            <span>Monday - Friday</span>
+                            <span>9:00 AM - 6:00 PM</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>Saturday</span>
+                            <span>10:00 AM - 2:00 PM</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>Sunday</span>
+                            <span>Closed</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Emergency Support</h4>
+                        <div class="hour-item">
+                            <span>Urgent Matters</span>
+                            <span>24/7 Available</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>WhatsApp</span>
+                            <span>24/7 Support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Emergency Contact -->
+            <div class="emergency-contact">
+                <h3><i class="fas fa-exclamation-triangle" style="margin-right: 10px;"></i>Urgent Business Matters</h3>
+                <p>For time-sensitive issues outside business hours, contact us directly:</p>
+                <div style="margin-top: 15px;">
+                    <h4>+351 920 317 545</h4>
+                    <p>Available for critical business emergencies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact" id="contact-form">
+        <div class="container">
+            <div class="section-title">
+                <h2>Send Us a Message</h2>
+                <p>Fill out the form below and we'll get back to you as soon as possible</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Start Your Project</h3>
+                    <p>Whether you're looking for consultancy services, IT solutions, transportation, travel arrangements, or import/export assistance - we're here to help you succeed.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Our Location</h4>
+                            <p>Lisbon, Portugal</p>
+                            <p style="color: var(--gray-medium);">Strategic European business hub</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone Number</h4>
+                            <p>+351 920 317 545</p>
+                            <p style="color: var(--gray-medium);">Calls & WhatsApp messages</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email Address</h4>
+                            <p>info@abobadatorrida.com</p>
+                            <p style="color: var(--gray-medium);">We respond within hours</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <h4>Service Inquiries</h4>
+                        <p>Quick links to our main services:</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;">
+                            <a href="consultancy.html" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">Consultancy</a>
+                            <a href="it-services.html" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">IT Services</a>
+                            <a href="transportation.html" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">Transportation</a>
+                            <a href="travel-tour.html" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">Travel & Tour</a>
+                            <a href="import-export.html" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">Import/Export</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="contact-success" id="successMessage">
+                        <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. We'll contact you soon.
+                    </div>
+
+                    <h3>Get Your Free Consultation</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="consultancy">Consultancy Services</option>
+                                <option value="it">IT Services</option>
+                                <option value="transportation">Transportation Services</option>
+                                <option value="travel">Travel & Tour Services</option>
+                                <option value="import-export">Import & Export Services</option>
+                                <option value="multiple">Multiple Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Brief subject of your inquiry">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" required placeholder="Tell us about your project or inquiry..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fas fa-paper-plane" style="margin-right: 10px;"></i>Send Message
+                        </button>
+                        
+                        <p style="text-align: center; margin-top: 15px; font-size: 0.9rem; color: var(--gray-medium);">
+                            We respect your privacy and will never share your information with third parties.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Location</h2>
+                <p>Strategically based in Lisbon, Portugal's vibrant capital and business hub</p>
+            </div>
+            <div class="map-container">
+                <div style="text-align: center;">
+                    <i class="fas fa-map-marker-alt" style="font-size: 48px; color: var(--primary-color); margin-bottom: 20px;"></i>
+                    <h3>Lisbon, Portugal</h3>
+                    <p>Prime location for European and international business</p>
+                    <p style="margin-top: 10px; font-size: 0.9rem;">Contact us for exact office address and directions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Quick answers to common questions</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What are your response times?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We typically respond to emails within 2-4 hours during business hours. Phone calls and WhatsApp messages are answered immediately when available. Urgent matters receive priority attention 24/7.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you offer free consultations?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer complimentary initial consultations for all our services. This allows us to understand your needs and provide you with the best possible solution without any obligation.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What languages do you support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our team is fluent in Portuguese, English, Spanish, and French. We can accommodate clients in these languages for all our services including consultancy, legal matters, and business communications.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can you help with urgent business matters?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We understand that business needs can be time-sensitive. For urgent matters, please call us directly at +351 920 317 545 or message us on WhatsApp for immediate assistance, even outside regular business hours.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you work with international clients?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we serve clients worldwide. Our strategic location in Lisbon makes us the perfect partner for businesses looking to expand to Portugal or use Portugal as a gateway to European and international markets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Abobada Torrida</h3>
+                    <p>Your trusted partner for comprehensive business solutions in Lisbon, Portugal.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="consultancy.html">Consultancy Services</a></li>
+                        <li><a href="it-services.html">IT Services</a></li>
+                        <li><a href="transportation.html">Transportation Services</a></li>
+                        <li><a href="travel-tour.html">Travel & Tour Services</a></li>
+                        <li><a href="import-export.html">Import & Export Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Lisbon, Portugal</li>
+                        <li><i class="fas fa-phone"></i> +351 920 317 545</li>
+                        <li><i class="fas fa-envelope"></i> info@abobadatorrida.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Abobada Torrida. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+
+        // Form Submission (Basic)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            this.reset();
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.backgroundColor = 'var(--accent-color)';
+            }
+        });
+    </script>
+</body>
+</html>
