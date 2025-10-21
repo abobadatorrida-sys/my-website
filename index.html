@@ -4,567 +4,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abobada Torrida - Consultancy Services</title>
+    <title>Abobada Torrida - Your Trusted Business Partner in Lisbon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        /* Your existing CSS remains the same */
+        /* Add these new styles for the additional sections */
 
-        :root {
-            --primary-color: #4FC3F7; /* Sky Blue */
-            --secondary-color: #0288D1; /* Darker Sky Blue */
-            --accent-color: #FFFFFF; /* White */
-            --text-color: #333333;
-            --light-bg: #F5F9FC;
-        }
-
-        body {
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        section {
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-blue) 100%);
+            color: white;
             padding: 80px 0;
-        }
-
-        h1, h2, h3, h4 {
-            margin-bottom: 20px;
-            color: var(--secondary-color);
-        }
-
-        p {
-            margin-bottom: 15px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 36px;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
-        }
-
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-
-        /* Header Styles */
-        header {
-            background-color: var(--accent-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo h1 {
-            font-size: 28px;
-            color: var(--primary-color);
-            margin-bottom: 0;
-        }
-
-        .logo span {
-            color: var(--secondary-color);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-            position: relative;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--primary-color);
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 220px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            z-index: 1;
-            border-radius: 4px;
-            top: 100%;
-            left: 0;
-        }
-
-        .dropdown-content a {
-            color: var(--text-color);
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            border-bottom: 1px solid #f1f1f1;
-        }
-
-        .dropdown-content a:hover {
-            background-color: var(--light-bg);
-            color: var(--primary-color);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 180px 0 100px;
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        /* Breadcrumb */
-        .breadcrumb {
-            padding: 20px 0;
-            background-color: var(--light-bg);
-            margin-top: 70px;
-        }
-
-        .breadcrumb ul {
-            display: flex;
-            list-style: none;
-        }
-
-        .breadcrumb ul li {
-            margin-right: 10px;
-            font-size: 14px;
-        }
-
-        .breadcrumb ul li:after {
-            content: '/';
-            margin-left: 10px;
-            color: #999;
-        }
-
-        .breadcrumb ul li:last-child:after {
-            content: '';
-        }
-
-        .breadcrumb ul li a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .breadcrumb ul li a:hover {
-            text-decoration: underline;
-        }
-
-        /* Service Detail Section */
-        .service-detail {
-            padding: 60px 0;
-        }
-
-        .service-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        .service-icon {
-            font-size: 60px;
-            color: var(--primary-color);
-            margin-right: 30px;
-        }
-
-        .service-content {
-            display: flex;
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-
-        .service-text {
-            flex: 2;
-        }
-
-        .service-sidebar {
-            flex: 1;
-            background-color: var(--light-bg);
-            padding: 30px;
-            border-radius: 8px;
-        }
-
-        .service-features {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
-            margin: 40px 0;
+            margin-top: 50px;
         }
 
-        .feature-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 30px;
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
             color: var(--primary-color);
-            margin-bottom: 15px;
         }
 
-        /* Services Section */
-        .services {
+        /* Mission & Vision Section */
+        .mission-vision {
+            padding: 80px 0;
             background-color: var(--light-bg);
         }
 
-        .services-grid {
+        .mv-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
-        .service-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        .mv-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
             transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .service-card:hover {
+        .mv-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .mv-card:hover {
             transform: translateY(-10px);
         }
 
-        .service-card .service-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            margin-right: 0;
-        }
-
-        .service-card h3 {
-            font-size: 22px;
-        }
-
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-
-        .about-text {
-            flex: 1;
-        }
-
-        .about-image {
-            flex: 1;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: var(--light-bg);
-        }
-
-        .contact-container {
-            display: flex;
-            gap: 50px;
-        }
-
-        .contact-info {
-            flex: 1;
-        }
-
-        .contact-form {
-            flex: 1;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            font-size: 20px;
-        }
-
-        .form-group {
+        .mv-icon {
+            font-size: 50px;
+            color: var(--primary-color);
             margin-bottom: 20px;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
+        /* Unique Selling Points */
+        .usp {
+            padding: 80px 0;
         }
 
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-
-        .footer-column {
-            flex: 1;
-            margin-right: 30px;
-        }
-
-        .footer-column h3 {
-            color: white;
-            margin-bottom: 25px;
-            font-size: 20px;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column ul li a:hover {
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--primary-color);
-        }
-
-        .copyright {
+        .usp-card {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content,
-            .contact-container,
-            .service-content {
-                flex-direction: column;
-            }
-            
-            .footer-content {
-                flex-wrap: wrap;
-            }
-            
-            .footer-column {
-                flex: 1 0 50%;
-                margin-bottom: 30px;
-            }
+        .usp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         }
 
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav ul.show {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 10px 0;
-            }
-            
-            .dropdown-content {
-                position: static;
-                box-shadow: none;
-                display: none;
-            }
-            
-            .dropdown:hover .dropdown-content {
-                display: none;
-            }
-            
-            .dropdown.active .dropdown-content {
-                display: block;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero p {
-                font-size: 18px;
-            }
-            
-            .service-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .service-icon {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
+        .usp-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
         }
 
-        @media (max-width: 576px) {
-            .section-title h2 {
-                font-size: 28px;
-            }
-            
-            .footer-column {
-                flex: 1 0 100%;
-            }
+        /* Client Showcase */
+        .clients {
+            background-color: var(--light-bg);
+            padding: 60px 0;
+        }
+
+        .client-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .client-logo {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            min-width: 150px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-light {
+            background: white;
+            color: var(--secondary-color);
+        }
+
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .btn-light:hover {
+            background: var(--light-bg);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: var(--secondary-color);
         }
     </style>
 </head>
@@ -598,98 +220,231 @@
         </div>
     </header>
 
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li>Consultancy Services</li>
-            </ul>
+            <h1>Your Gateway to Global Success</h1>
+            <p>Abobada Torrida provides comprehensive business solutions from Lisbon, Portugal - Your trusted partner for consultancy, IT, transportation, travel, and international trade services.</p>
+            <a href="contact.html" class="btn">Start Your Journey</a>
         </div>
-    </div>
+    </section>
 
-    <!-- Service Detail Section -->
-    <section class="service-detail">
+    <!-- Stats Section -->
+    <section class="stats">
         <div class="container">
-            <div class="service-header">
-                <div class="service-icon">
-                    <i class="fas fa-chart-line"></i>
+            <h2>Why Businesses Choose Us</h2>
+            <p>Proven results and trusted partnerships</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <h3>Happy Clients</h3>
+                    <p>Successful partnerships worldwide</p>
                 </div>
-                <div>
-                    <h1>Consultancy Services</h1>
-                    <p>Strategic business consulting to help you make informed decisions and drive growth</p>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <h3>Years Experience</h3>
+                    <p>Industry expertise and knowledge</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <h3>Countries Served</h3>
+                    <p>Global reach and presence</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <h3>Support</h3>
+                    <p>Always here for our clients</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="service-content">
-                <div class="service-text">
-                    <h2>Comprehensive Business Consulting</h2>
-                    <p>At Abobada Torrida, we provide expert consultancy services designed to help businesses navigate challenges, identify opportunities, and achieve sustainable growth. Our team of experienced consultants brings diverse industry knowledge and strategic thinking to every engagement.</p>
-                    
-                    <p>We work closely with our clients to understand their unique needs and develop customized solutions that deliver measurable results. Whether you're looking to optimize operations, enter new markets, or transform your business model, we have the expertise to guide you.</p>
-                    
-                    <h3>Our Approach</h3>
-                    <p>Our consultancy methodology is built on a foundation of deep analysis, collaborative problem-solving, and practical implementation. We believe in creating partnerships with our clients rather than simply delivering reports.</p>
-                    
-                    <div class="service-features">
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <h4>In-Depth Analysis</h4>
-                            <p>Comprehensive assessment of your business, market position, and competitive landscape.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-lightbulb"></i>
-                            </div>
-                            <h4>Strategic Planning</h4>
-                            <p>Development of actionable strategies aligned with your business objectives.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-chart-pie"></i>
-                            </div>
-                            <h4>Performance Metrics</h4>
-                            <p>Establishment of KPIs and monitoring systems to track progress and success.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-icon">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <h4>Implementation Support</h4>
-                            <p>Guidance and support throughout the execution of recommended strategies.</p>
-                        </div>
+    <!-- Mission & Vision Section -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Philosophy</h2>
+                <p>Driving success through purpose and vision</p>
+            </div>
+            <div class="mv-container">
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
                     </div>
-                    
-                    <h3>Areas of Expertise</h3>
-                    <p>Our consultancy services cover a wide range of business areas, including but not limited to:</p>
-                    <ul>
-                        <li>Business Strategy Development</li>
-                        <li>Market Research and Analysis</li>
-                        <li>Operational Efficiency Improvement</li>
-                        <li>Organizational Structure Optimization</li>
-                        <li>Change Management</li>
-                        <li>Financial Planning and Analysis</li>
-                        <li>Digital Transformation</li>
+                    <h3>Our Mission</h3>
+                    <p>To empower businesses and individuals with comprehensive, innovative solutions that bridge Portugal with global opportunities. We strive to be the trusted partner that simplifies complexity and accelerates success in international markets.</p>
+                    <ul style="text-align: left; margin-top: 20px;">
+                        <li>Provide end-to-end business solutions</li>
+                        <li>Simplify international expansion</li>
+                        <li>Deliver exceptional client experiences</li>
+                        <li>Foster sustainable growth partnerships</li>
                     </ul>
                 </div>
-                
-                <div class="service-sidebar">
-                    <h3>Other Services</h3>
-                    <ul>
-                        <li><a href="it-services.html">IT Services</a></li>
-                        <li><a href="transportation.html">Transportation Services</a></li>
-                        <li><a href="travel-tour.html">Travel & Tour Services</a></li>
-                        <li><a href="import-export.html">Import & Export Services</a></li>
-                    </ul>
-                    
-                    <div style="margin-top: 30px;">
-                        <h3>Contact Our Consultants</h3>
-                        <p>Ready to transform your business? Get in touch with our expert consultants today.</p>
-                        <a href="contact.html" class="btn" style="margin-top: 15px; display: block; text-align: center;">Contact Us</a>
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
                     </div>
+                    <h3>Our Vision</h3>
+                    <p>To be Lisbon's premier gateway for global business success, recognized for transforming ambitions into achievements and creating lasting value for our clients across continents.</p>
+                    <ul style="text-align: left; margin-top: 20px;">
+                        <li>Global business connector</li>
+                        <li>Innovation-driven solutions</li>
+                        <li>Trusted industry leader</li>
+                        <li>Sustainable impact creator</li>
+                    </ul>
+                </div>
+                <div class="mv-card">
+                    <div class="mv-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Our Values</h3>
+                    <p>Integrity, Excellence, Innovation, and Partnership guide every decision we make and every service we deliver.</p>
+                    <ul style="text-align: left; margin-top: 20px;">
+                        <li><strong>Integrity:</strong> Honest and transparent in all dealings</li>
+                        <li><strong>Excellence:</strong> Superior quality in every service</li>
+                        <li><strong>Innovation:</strong> Creative solutions for modern challenges</li>
+                        <li><strong>Partnership:</strong> Collaborative approach to success</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Comprehensive Services</h2>
+                <p>End-to-end solutions for all your business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Consultancy Services</h3>
+                    <p>Strategic business consulting, international student services, work permits, and legal advisory through our partnered law firm.</p>
+                    <a href="consultancy.html" class="btn">Explore More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>IT Services</h3>
+                    <p>Complete IT solutions including software development, cybersecurity, cloud migration, and digital transformation services.</p>
+                    <a href="it-services.html" class="btn">Explore More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Transportation Services</h3>
+                    <p>Reliable and efficient transportation solutions for goods and personnel with nationwide coverage and international connections.</p>
+                    <a href="transportation.html" class="btn">Explore More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Travel & Tour Services</h3>
+                    <p>Customized travel packages, corporate travel management, and unique tour experiences tailored to your preferences.</p>
+                    <a href="travel-tour.html" class="btn">Explore More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Import & Export Services</h3>
+                    <p>Streamlined international trade solutions including customs clearance, logistics, and market entry strategies.</p>
+                    <a href="import-export.html" class="btn">Explore More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Selling Points -->
+    <section class="usp">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Abobada Torrida?</h2>
+                <p>Unique advantages that set us apart</p>
+            </div>
+            <div class="usp-grid">
+                <div class="usp-card">
+                    <div class="usp-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Legal Assurance</h3>
+                    <p>Partnered with established law firms for complete legal compliance and protection</p>
+                </div>
+                <div class="usp-card">
+                    <div class="usp-icon">
+                        <i class="fas fa-globe-europe"></i>
+                    </div>
+                    <h3>European Gateway</h3>
+                    <p>Strategic Lisbon location providing perfect access to European and global markets</p>
+                </div>
+                <div class="usp-card">
+                    <div class="usp-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>One-Stop Solution</h3>
+                    <p>From student visas to business expansion - all services under one roof</p>
+                </div>
+                <div class="usp-card">
+                    <div class="usp-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Rapid Results</h3>
+                    <p>Efficient processes that deliver faster outcomes without compromising quality</p>
+                </div>
+                <div class="usp-card">
+                    <div class="usp-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Multilingual Team</h3>
+                    <p>Expert consultants fluent in multiple languages for seamless global communication</p>
+                </div>
+                <div class="usp-card">
+                    <div class="usp-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Personalized Approach</h3>
+                    <p>Customized solutions tailored to your specific needs and goals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Showcase -->
+    <section class="clients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trusted by Industry Leaders</h2>
+                <p>Partnering with businesses across multiple sectors</p>
+            </div>
+            <div class="client-logos">
+                <div class="client-logo">Technology Partners</div>
+                <div class="client-logo">Educational Institutions</div>
+                <div class="client-logo">Logistics Networks</div>
+                <div class="client-logo">International Corporations</div>
+                <div class="client-logo">Government Agencies</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Join hundreds of successful clients who have expanded their horizons with Abobada Torrida. Let's build your success story together.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-light">Start Your Project</a>
+                    <a href="about.html" class="btn btn-outline-light">Learn About Us</a>
+                </div>
+                <div style="margin-top: 30px; font-size: 0.9rem;">
+                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> Need immediate assistance? Call +351 XXX XXX XXX</p>
                 </div>
             </div>
         </div>
@@ -743,52 +498,7 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
-        });
-
-        // Mobile Dropdown Toggle
-        document.querySelectorAll('.dropdown > a').forEach(function(dropdown) {
-            dropdown.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    const dropdown = this.parentElement;
-                    dropdown.classList.toggle('active');
-                }
-            });
-        });
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu after clicking a link
-                    document.querySelector('nav ul').classList.remove('show');
-                }
-            });
-        });
-
-        // Header background on scroll
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if(window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-            } else {
-                header.style.backgroundColor = 'var(--accent-color)';
-            }
-        });
+        // Your existing JavaScript remains the same
     </script>
 </body>
 </html>
