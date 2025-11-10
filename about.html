@@ -6,6 +6,7 @@
     <title>About Us - Abobada Torrida | Lisbon Business Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* All your existing CSS remains the same */
         /* Global Styles */
         * {
             margin: 0;
@@ -334,6 +335,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.05);
         }
 
         .member-info {
@@ -349,6 +355,19 @@
             color: var(--primary-color);
             font-weight: 500;
             margin-bottom: 10px;
+        }
+
+        /* Fallback for missing images */
+        .member-image::before {
+            content: attr(data-alt);
+            position: absolute;
+            color: white;
+            font-weight: bold;
+            z-index: 1;
+        }
+
+        .member-image.has-image::before {
+            display: none;
         }
 
         /* Services Overview */
@@ -800,9 +819,8 @@
             </div>
             <div class="team-grid">
                 <div class="team-member">
-                    <div class="member-image">
-                        <!-- Replace with actual image path -->
-                        <img src="images/shahbaz-ali.jpg" alt="Shahbaz Ali">
+                    <div class="member-image" data-alt="CEO">
+                        <img src="images/shahbaz-ali.jpg" alt="Shahbaz Ali - CEO" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'">
                     </div>
                     <div class="member-info">
                         <h3>Shahbaz Ali</h3>
@@ -811,9 +829,8 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <div class="member-image">
-                        <!-- Replace with actual image path -->
-                        <img src="images/rao-mohsan-hasan.jpg" alt="Rao Mohsan Hasan">
+                    <div class="member-image" data-alt="Operation Director">
+                        <img src="images/rao-mohsan-hasan.jpg" alt="Rao Mohsan Hasan - Operation Director" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'">
                     </div>
                     <div class="member-info">
                         <h3>Rao Mohsan Hasan</h3>
@@ -822,9 +839,8 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <div class="member-image">
-                        <!-- Replace with actual image path -->
-                        <img src="images/m-ali-ejaz.jpg" alt="M Ali Ejaz">
+                    <div class="member-image" data-alt="IT Director">
+                        <img src="images/m-ali-ejaz.jpg" alt="M Ali Ejaz - IT Director" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'">
                     </div>
                     <div class="member-info">
                         <h3>M Ali Ejaz</h3>
@@ -833,9 +849,8 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <div class="member-image">
-                        <!-- Replace with actual image path -->
-                        <img src="images/shamas-shehzad.jpg" alt="Shamas Shehzad">
+                    <div class="member-image" data-alt="General Manager">
+                        <img src="images/shamas-shehzad.jpg" alt="Shamas Shehzad - General Manager" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'">
                     </div>
                     <div class="member-info">
                         <h3>Shamas Shehzad</h3>
@@ -844,9 +859,8 @@
                     </div>
                 </div>
                 <div class="team-member">
-                    <div class="member-image">
-                        <!-- Replace with actual image path -->
-                        <img src="images/amjad-ali-dogar.jpg" alt="Amjad Ali Dogar">
+                    <div class="member-image" data-alt="Sales Manager">
+                        <img src="images/amjad-ali-dogar.jpg" alt="Amjad Ali Dogar - Sales Manager" onload="this.parentElement.classList.add('has-image')" onerror="this.style.display='none'">
                     </div>
                     <div class="member-info">
                         <h3>Amjad Ali Dogar</h3>
@@ -894,7 +908,7 @@
                     <h3>Contact Info</h3>
                     <ul>
                         <li><i class="fas fa-map-marker-alt"></i> Lisbon, Portugal</li>
-                        <li><i class="fas fa-phone"></i> +351 920 317 545</li>
+                        <li><i class="fas fa-phone"></i> +351 XXX XXX XXX</li>
                         <li><i class="fas fa-envelope"></i> info@abobadatorrida.com</li>
                     </ul>
                 </div>
@@ -951,6 +965,16 @@
             } else {
                 header.style.backgroundColor = 'var(--accent-color)';
             }
+        });
+
+        // Image fallback handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const memberImages = document.querySelectorAll('.member-image img');
+            memberImages.forEach(img => {
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                });
+            });
         });
     </script>
 </body>
