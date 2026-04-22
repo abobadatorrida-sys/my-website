@@ -3,40 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABB Boutique - Best Quality Clothing | Asian Elegance Redefined</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ABB Boutique - Best Quality Asian Clothing | AbobadaTorrida</title>
     <style>
-        /* Additional styles specific to clothing page - keeps same theme */
-        .category-filter {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+        /* Global Styles - Matching your website theme */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
-        .filter-btn {
-            background: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 10px 25px;
-            border-radius: 30px;
+
+        :root {
+            --primary-color: #4FC3F7;
+            --secondary-color: #0288D1;
+            --accent-color: #FFFFFF;
+            --text-color: #333333;
+            --light-bg: #F5F9FC;
+            --dark-blue: #01579B;
+            --gray-light: #f8f9fa;
+            --gray-medium: #6c757d;
+            --gray-dark: #343a40;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--accent-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.25rem; }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
             cursor: pointer;
             font-weight: 600;
+            text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 1rem;
+            text-align: center;
         }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--primary-color);
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 13px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--accent-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 0;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: var(--text-color);
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--light-bg);
+            color: var(--primary-color);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 20px 0;
+            background-color: var(--light-bg);
+            margin-top: 70px;
+        }
+
+        .breadcrumb ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .breadcrumb ul li {
+            margin-right: 10px;
+            font-size: 14px;
+        }
+
+        .breadcrumb ul li:after {
+            content: '/';
+            margin-left: 10px;
+            color: var(--gray-medium);
+        }
+
+        .breadcrumb ul li:last-child:after {
+            content: '';
+        }
+
+        .breadcrumb ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
             color: white;
         }
-        
+
+        .about-hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        /* Product Grid */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
         }
-        
+
         .product-card {
             background: white;
             border-radius: 12px;
@@ -44,12 +261,12 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
-        
+
         .product-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
-        
+
         .product-image {
             height: 280px;
             background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
@@ -57,20 +274,8 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            overflow: hidden;
         }
-        
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-        
+
         .product-badge {
             position: absolute;
             top: 15px;
@@ -82,41 +287,38 @@
             font-size: 12px;
             font-weight: 600;
         }
-        
+
         .product-info {
             padding: 20px;
         }
-        
+
         .product-category {
             color: var(--primary-color);
             font-size: 13px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
             margin-bottom: 8px;
         }
-        
+
         .product-title {
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 10px;
-            color: var(--text-color);
         }
-        
+
         .product-desc {
             font-size: 14px;
             color: var(--gray-medium);
             margin-bottom: 15px;
-            line-height: 1.5;
         }
-        
+
         .product-features {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 15px;
         }
-        
+
         .feature-tag {
             background: var(--light-bg);
             padding: 4px 10px;
@@ -124,7 +326,7 @@
             font-size: 11px;
             color: var(--secondary-color);
         }
-        
+
         .product-footer {
             display: flex;
             justify-content: space-between;
@@ -133,22 +335,13 @@
             padding-top: 15px;
             border-top: 1px solid #eee;
         }
-        
+
         .price-note {
             color: var(--secondary-color);
             font-weight: 600;
             font-size: 14px;
         }
-        
-        .btn-small {
-            padding: 8px 20px;
-            font-size: 13px;
-        }
-        
-        .category-section {
-            margin-bottom: 60px;
-        }
-        
+
         .category-title {
             font-size: 28px;
             margin-bottom: 30px;
@@ -156,26 +349,11 @@
             border-bottom: 3px solid var(--primary-color);
             display: inline-block;
         }
-        
-        .value-badge {
-            background: var(--light-bg);
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
+
+        .category-section {
+            margin-bottom: 60px;
         }
-        
-        .value-badge:hover {
-            transform: translateY(-5px);
-            background: white;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .value-icon {
-            font-size: 35px;
-            margin-bottom: 15px;
-        }
-        
+
         .origin-badge {
             display: inline-block;
             background: var(--secondary-color);
@@ -185,45 +363,208 @@
             font-size: 11px;
             margin-bottom: 8px;
         }
-        
+
+        /* About Content */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-badge {
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-badge:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .value-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .footer-column {
+            flex: 1;
+            margin-right: 30px;
+            min-width: 200px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        .d-flex {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
         @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                display: none;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1, .about-hero h1 {
+                font-size: 36px;
+            }
+            
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
             }
             
-            .category-filter {
-                gap: 10px;
-            }
-            
-            .filter-btn {
-                padding: 6px 16px;
-                font-size: 13px;
+            .footer-column {
+                flex: 1 0 100%;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- Header Section (Same as your existing website) -->
+<!-- Header -->
 <header>
     <div class="container header-container">
         <div class="logo">
-            <h1>ABB <span>Boutique</span></h1>
+            <h1>Abobada<span>Torrida</span></h1>
         </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="#">Products ▼</a>
+                    <a href="#">Services ▼</a>
                     <div class="dropdown-content">
-                        <a href="clothing.html">Women's Collection</a>
-                        <a href="clothing.html#men">Men's Collection</a>
-                        <a href="clothing.html#fabrics">Unstitched Fabric</a>
+                        <a href="services.html">Consultancy</a>
+                        <a href="services.html">IT Services</a>
+                        <a href="services.html">Transportation</a>
+                        <a href="services.html">Travel & Tour</a>
                     </div>
                 </li>
-                <li><a href="services.html">Services</a></li>
+                <li><a href="clothing.html">Shop</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -236,13 +577,13 @@
     <div class="container">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li>Clothing Collection</li>
+            <li>ABB Boutique</li>
         </ul>
     </div>
 </div>
 
 <!-- Hero Section -->
-<section class="about-hero" style="padding: 100px 0 60px;">
+<section class="about-hero">
     <div class="container">
         <h1>ABB Boutique Collection</h1>
         <p>Best Quality, Reasonable Prices – Asian Elegance Redefined</p>
@@ -250,16 +591,16 @@
     </div>
 </section>
 
-<!-- Company Overview Banner -->
-<section style="padding: 40px 0 0;">
+<!-- Company Overview -->
+<section style="padding: 60px 0 0;">
     <div class="container">
         <div class="about-content">
             <div class="about-text">
                 <h2>AbobadaTorrida Boutique</h2>
                 <h3 style="color: var(--primary-color);">ABB Boutique</h3>
                 <p>Welcome to <strong>AbobadaTorrida Boutique (ABB Boutique)</strong> – your premier destination for authentic Asian clothing. We specialize in <strong>Pakistani, Indian, and Bengali</strong> stitched and unstitched clothing for both men and women.</p>
-                <p>Our promise: <strong>Best Quality, Reasonable Prices</strong>. We source directly from Lahore, Delhi, and Dhaka to bring you the finest fabrics and craftsmanship at prices that won't break the bank.</p>
-                <div class="d-flex" style="gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                <p>Our promise: <strong>Best Quality, Reasonable Prices</strong>. We source directly from Lahore, Delhi, and Dhaka to bring you the finest fabrics and craftsmanship.</p>
+                <div class="d-flex" style="margin-top: 20px;">
                     <span class="feature-tag">✅ 100% Authentic</span>
                     <span class="feature-tag">✅ Worldwide Shipping</span>
                     <span class="feature-tag">✅ Custom Stitching</span>
@@ -267,8 +608,8 @@
                 </div>
             </div>
             <div class="about-image">
-                <div style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 40px; border-radius: 8px; text-align: center; color: white;">
-                    <div style="font-size: 60px;">👗</div>
+                <div style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 50px; border-radius: 8px; text-align: center; color: white;">
+                    <div style="font-size: 70px;">👗</div>
                     <h3>ABB Boutique</h3>
                     <p>Asian Elegance Redefined</p>
                 </div>
@@ -278,16 +619,16 @@
 </section>
 
 <!-- Women's Collection -->
-<section id="women" style="padding: 60px 0;">
+<section style="padding: 60px 0;">
     <div class="container">
         <div class="category-section">
             <h2 class="category-title">👩 Women's Collection</h2>
             
             <div class="products-grid">
-                <!-- Pakistani Lawn Suits -->
+                <!-- Product 1 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #a8edea, #fed6e3); display: flex; align-items: center; justify-content: center; font-size: 50px;">👗</div>
+                        <div style="font-size: 60px;">👗</div>
                         <span class="product-badge">Best Seller</span>
                     </div>
                     <div class="product-info">
@@ -302,15 +643,15 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pakistani Embroidered Khaddar -->
+                <!-- Product 2 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #d4fc79, #96e6a1); display: flex; align-items: center; justify-content: center; font-size: 50px;">🧥</div>
+                        <div style="font-size: 60px;">🧥</div>
                         <span class="product-badge">Winter Special</span>
                     </div>
                     <div class="product-info">
@@ -325,15 +666,15 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Indian Sarees -->
+                <!-- Product 3 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #fa709a, #fee140); display: flex; align-items: center; justify-content: center; font-size: 50px;">👘</div>
+                        <div style="font-size: 60px;">👘</div>
                         <span class="product-badge">Premium</span>
                     </div>
                     <div class="product-info">
@@ -348,15 +689,15 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Indian Lehenga Choli -->
+                <!-- Product 4 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ff9a9e, #fecfef); display: flex; align-items: center; justify-content: center; font-size: 50px;">💃</div>
+                        <div style="font-size: 60px;">💃</div>
                         <span class="product-badge">Wedding Special</span>
                     </div>
                     <div class="product-info">
@@ -371,15 +712,15 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bengali Tant Saree -->
+                <!-- Product 5 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #a1c4fd, #c2e9fb); display: flex; align-items: center; justify-content: center; font-size: 50px;">🥻</div>
+                        <div style="font-size: 60px;">🥻</div>
                     </div>
                     <div class="product-info">
                         <span class="origin-badge">🇧🇩 Bengali</span>
@@ -393,15 +734,15 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bengali Muslin Jamdani -->
+                <!-- Product 6 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #e0c3fc, #8ec5fc); display: flex; align-items: center; justify-content: center; font-size: 50px;">✨</div>
+                        <div style="font-size: 60px;">✨</div>
                         <span class="product-badge">Heritage</span>
                     </div>
                     <div class="product-info">
@@ -416,15 +757,15 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- ABB Stitched Suits -->
+                <!-- Product 7 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #fbc2eb, #a6c1ee); display: flex; align-items: center; justify-content: center; font-size: 50px;">👚</div>
+                        <div style="font-size: 60px;">👚</div>
                         <span class="product-badge">Ready to Wear</span>
                     </div>
                     <div class="product-info">
@@ -439,26 +780,15 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Men's Collection -->
-<section id="men" style="padding: 0 0 60px 0; background-color: var(--light-bg);">
-    <div class="container">
-        <div class="category-section">
-            <h2 class="category-title">👨 Men's Collection</h2>
-            
-            <div class="products-grid">
-                <!-- Pakistani Shalwar Kameez -->
+                <!-- Product 8 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #e0eafc, #cfdef3); display: flex; align-items: center; justify-content: center; font-size: 50px;">👔</div>
+                        <div style="font-size: 60px;">👔</div>
                     </div>
                     <div class="product-info">
                         <span class="origin-badge">🇵🇰 Pakistani</span>
@@ -472,15 +802,25 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-                <!-- Pakistani Embroidered Waistcoat -->
+<!-- Men's Collection -->
+<section style="padding: 0 0 60px 0; background-color: var(--light-bg);">
+    <div class="container">
+        <div class="category-section">
+            <h2 class="category-title">👨 Men's Collection</h2>
+            
+            <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f5af19, #f12711); display: flex; align-items: center; justify-content: center; font-size: 50px;">🎽</div>
+                        <div style="font-size: 60px;">🎽</div>
                         <span class="product-badge">Wedding Wear</span>
                     </div>
                     <div class="product-info">
@@ -494,15 +834,14 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Indian Kurta Pajama -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #fccb90, #d57eeb); display: flex; align-items: center; justify-content: center; font-size: 50px;">👘</div>
+                        <div style="font-size: 60px;">👘</div>
                     </div>
                     <div class="product-info">
                         <span class="origin-badge">🇮🇳 Indian</span>
@@ -516,15 +855,14 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bengali Fatua / Punjabi -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #89f7fe, #66a6ff); display: flex; align-items: center; justify-content: center; font-size: 50px;">🥻</div>
+                        <div style="font-size: 60px;">🥻</div>
                     </div>
                     <div class="product-info">
                         <span class="origin-badge">🇧🇩 Bengali</span>
@@ -538,29 +876,19 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Unstitched Fabric Section -->
-<section id="fabrics" style="padding: 60px 0;">
-    <div class="container">
-        <div class="category-section">
-            <h2 class="category-title">🧵 Unstitched Fabric Collection</h2>
-            
-            <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ddd6f3, #faaca8); display: flex; align-items: center; justify-content: center; font-size: 50px;">📏</div>
+                        <div style="font-size: 60px;">📏</div>
                     </div>
                     <div class="product-info">
-                        <div class="product-category">Premium Suiting Material</div>
-                        <h3 class="product-title">ABB Men's Unstitched Fabric</h3>
+                        <span class="origin-badge">✨ ABB</span>
+                        <div class="product-category">Unstitched Fabric</div>
+                        <h3 class="product-title">Premium Unstitched Fabric</h3>
                         <p class="product-desc">2.5m – 3m premium suiting material. Customize your perfect fit with our tailoring service.</p>
                         <div class="product-features">
                             <span class="feature-tag">2.5m - 3m</span>
@@ -569,27 +897,7 @@
                         </div>
                         <div class="product-footer">
                             <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-image">
-                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ffe259, #ffa751); display: flex; align-items: center; justify-content: center; font-size: 50px;">🧵</div>
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">Women's Unstitched</div>
-                        <h3 class="product-title">Premium Lawn & Khaddar Fabric</h3>
-                        <p class="product-desc">Choose from our wide range of unstitched fabrics. Get custom stitching as per your measurements.</p>
-                        <div class="product-features">
-                            <span class="feature-tag">Lawn</span>
-                            <span class="feature-tag">Khaddar</span>
-                            <span class="feature-tag">Custom Stitching</span>
-                        </div>
-                        <div class="product-footer">
-                            <span class="price-note">💰 Reasonable Price</span>
-                            <button class="btn btn-small">View Details</button>
+                            <button class="btn btn-small" onclick="alert('Contact us for pricing and availability!')">Inquire</button>
                         </div>
                     </div>
                 </div>
@@ -599,7 +907,7 @@
 </section>
 
 <!-- Why Choose ABB Boutique -->
-<section style="padding: 60px 0; background-color: var(--light-bg);">
+<section style="padding: 60px 0;">
     <div class="container">
         <div class="section-title">
             <h2>Why Choose ABB Boutique?</h2>
@@ -649,12 +957,10 @@
 <!-- Contact CTA -->
 <section style="padding: 60px 0;">
     <div class="container">
-        <div class="about-content" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 15px; padding: 50px; color: white; text-align: center;">
-            <div style="flex: 1;">
-                <h2 style="color: white;">Ready to Shop?</h2>
-                <p style="color: rgba(255,255,255,0.9);">Contact us for orders, custom stitching inquiries, or bulk purchases</p>
-                <a href="contact.html" class="btn" style="background: white; color: var(--primary-color); margin-top: 20px;">Contact Us Today</a>
-            </div>
+        <div style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 15px; padding: 50px; text-align: center; color: white;">
+            <h2 style="color: white;">Ready to Shop?</h2>
+            <p style="color: rgba(255,255,255,0.9);">Contact us for orders, custom stitching inquiries, or bulk purchases</p>
+            <a href="contact.html" class="btn" style="background: white; color: var(--primary-color); margin-top: 20px; display: inline-block;">Contact Us Today</a>
         </div>
     </div>
 </section>
@@ -684,17 +990,17 @@
             <div class="footer-column">
                 <h3>Collections</h3>
                 <ul>
-                    <li><a href="clothing.html#women">Women's Collection</a></li>
-                    <li><a href="clothing.html#men">Men's Collection</a></li>
-                    <li><a href="clothing.html#fabrics">Unstitched Fabric</a></li>
+                    <li><a href="#">Women's Collection</a></li>
+                    <li><a href="#">Men's Collection</a></li>
+                    <li><a href="#">Unstitched Fabric</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h3>Contact Info</h3>
                 <ul>
-                    <li>📞 +1 234 567 890</li>
-                    <li>✉️ info@abbboutique.com</li>
-                    <li>🌍 www.abbboutique.com</li>
+                    <li>📞 +351 920 317 545</li>
+                    <li>✉️ info@abobadatorrida.com</li>
+                    <li>🌍 www.abobadatorrida.com</li>
                 </ul>
             </div>
         </div>
@@ -708,13 +1014,6 @@
     // Mobile menu toggle
     document.querySelector('.mobile-menu').addEventListener('click', function() {
         document.querySelector('nav ul').classList.toggle('show');
-    });
-    
-    // Simple product view alert (you can replace with actual functionality)
-    document.querySelectorAll('.btn-small').forEach(btn => {
-        btn.addEventListener('click', function() {
-            alert('Product inquiry form will open here. Contact us for pricing and availability!');
-        });
     });
 </script>
 
