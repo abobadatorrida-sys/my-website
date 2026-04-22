@@ -1,504 +1,972 @@
-<link rel="stylesheet" href="style.css">
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abobada Torrida - Your Trusted Business Partner in Lisbon</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Abobada Torrida - Your Trusted Business Partner in Lisbon | Consultancy, IT, Transport, Travel, Clothing</title>
     <style>
-        /* Your existing CSS remains the same */
-        /* Add these new styles for the additional sections */
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #4FC3F7;
+            --secondary-color: #0288D1;
+            --accent-color: #FFFFFF;
+            --text-color: #333333;
+            --light-bg: #F5F9FC;
+            --dark-blue: #01579B;
+            --gray-light: #f8f9fa;
+            --gray-medium: #6c757d;
+            --gray-dark: #343a40;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--accent-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            font-weight: 700;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 13px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--accent-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            top: 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 0;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: white;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
 
         /* Stats Section */
         .stats {
-            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-blue) 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
+            background-color: var(--light-bg);
         }
 
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
-            margin-top: 50px;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
+            text-align: center;
         }
 
         .stat-number {
             font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-weight: 700;
             color: var(--primary-color);
         }
 
-        /* Mission & Vision Section */
-        .mission-vision {
-            padding: 80px 0;
-            background-color: var(--light-bg);
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
         }
 
-        .mv-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+        .about-text {
+            flex: 1;
         }
 
-        .mv-card {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s ease;
-            position: relative;
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
             overflow: hidden;
         }
 
-        .mv-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-        }
-
-        .mv-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .mv-icon {
-            font-size: 50px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        /* Unique Selling Points */
-        .usp {
-            padding: 80px 0;
-        }
-
-        .usp-grid {
+        /* Values Grid */
+        .values-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
 
-        .usp-card {
-            text-align: center;
+        .value-card {
+            background-color: white;
+            border-radius: 8px;
             padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        /* Clothing Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 12px;
+            overflow: hidden;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
-            border: 1px solid #f0f0f0;
         }
 
-        .usp-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
 
-        .usp-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
+        .product-image {
+            height: 220px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
+            font-size: 60px;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
             color: white;
-            font-size: 30px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
         }
 
-        /* Client Showcase */
-        .clients {
-            background-color: var(--light-bg);
-            padding: 60px 0;
-        }
-
-        .client-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .client-logo {
-            background: white;
+        .product-info {
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            min-width: 150px;
-            text-align: center;
-            font-weight: bold;
+        }
+
+        .product-category {
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: var(--gray-medium);
+            margin-bottom: 10px;
+        }
+
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .feature-tag {
+            background: var(--light-bg);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 10px;
             color: var(--secondary-color);
         }
 
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta-buttons {
+        .product-footer {
             display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 30px;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .price-note {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        .origin-badge {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
             flex-wrap: wrap;
         }
 
-        .btn-light {
-            background: white;
-            color: var(--secondary-color);
+        .footer-column {
+            flex: 1;
+            margin-right: 30px;
+            min-width: 200px;
+            margin-bottom: 30px;
         }
 
-        .btn-outline-light {
-            background: transparent;
-            border: 2px solid white;
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .footer-column ul li a:hover {
             color: white;
         }
 
-        .btn-light:hover {
-            background: var(--light-bg);
-            transform: translateY(-3px);
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
         }
 
-        .btn-outline-light:hover {
-            background: white;
-            color: var(--secondary-color);
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .footer-column {
+                flex: 1 0 100%;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <h1>Abobada <span>Torrida</span></h1>
+
+<!-- Header -->
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <h1>Abobada<span>Torrida</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#clothing">Clothing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu">☰</div>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <h1>Your Gateway to Global Success</h1>
+        <p>Abobada Torrida provides comprehensive business solutions from Lisbon, Portugal - Your trusted partner for consultancy, IT, transportation, travel, international trade, and authentic Asian clothing.</p>
+        <a href="#services" class="btn">Explore Services</a>
+        <a href="#clothing" class="btn btn-outline" style="margin-left: 15px;">Shop ABB Boutique</a>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div>
+                <div class="stat-number">500+</div>
+                <p>Happy Clients</p>
             </div>
-            <div class="mobile-menu">
-                <i class="fas fa-bars"></i>
+            <div>
+                <div class="stat-number">15+</div>
+                <p>Years Experience</p>
             </div>
-            <nav>
+            <div>
+                <div class="stat-number">50+</div>
+                <p>Countries Served</p>
+            </div>
+            <div>
+                <div class="stat-number">24/7</div>
+                <p>Support</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>About Abobada Torrida</h2>
+                <p>Abobada Torrida is your trusted business partner in Lisbon, Portugal, providing comprehensive solutions for businesses and individuals worldwide.</p>
+                <p>With over 15 years of experience, we bridge Portugal with global opportunities through consultancy, IT services, transportation, travel, international trade, and our exclusive clothing boutique - ABB Boutique.</p>
+                <a href="#services" class="btn">Our Services</a>
+            </div>
+            <div class="about-image">
+                <div style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 50px; border-radius: 8px; text-align: center; color: white;">
+                    <div style="font-size: 60px;">🇵🇹</div>
+                    <h3>Lisbon, Portugal</h3>
+                    <p>Your Gateway to Europe</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission & Vision -->
+<section style="background-color: var(--light-bg);">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Core Philosophy</h2>
+            <p>Driving success through purpose and vision</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Our Mission</h3>
+                <p>To empower businesses and individuals with comprehensive, innovative solutions that bridge Portugal with global opportunities.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">👁️</div>
+                <h3>Our Vision</h3>
+                <p>To be Lisbon's premier gateway for global business success, transforming ambitions into achievements across continents.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="services">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Comprehensive Services</h2>
+            <p>End-to-end solutions for all your business needs</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Consultancy Services</h3>
+                <p>Strategic business consulting, international student services, work permits, and legal advisory through our partnered law firm.</p>
+                <a href="#" class="btn-small btn" style="margin-top: 15px;">Learn More</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>IT Services</h3>
+                <p>Complete IT solutions including software development, cybersecurity, cloud migration, and digital transformation services.</p>
+                <a href="#" class="btn-small btn" style="margin-top: 15px;">Learn More</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚚</div>
+                <h3>Transportation Services</h3>
+                <p>Reliable and efficient transportation solutions for goods and personnel with nationwide coverage and international connections.</p>
+                <a href="#" class="btn-small btn" style="margin-top: 15px;">Learn More</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">✈️</div>
+                <h3>Travel & Tour Services</h3>
+                <p>Customized travel packages, corporate travel management, and unique tour experiences tailored to your preferences.</p>
+                <a href="#" class="btn-small btn" style="margin-top: 15px;">Learn More</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📦</div>
+                <h3>Import & Export Services</h3>
+                <p>Streamlined international trade solutions including customs clearance, logistics, and market entry strategies.</p>
+                <a href="#" class="btn-small btn" style="margin-top: 15px;">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABB Boutique Clothing Section -->
+<section id="clothing" style="background-color: var(--light-bg);">
+    <div class="container">
+        <div class="section-title">
+            <h2>👗 ABB Boutique - Asian Clothing</h2>
+            <p>Best Quality, Reasonable Prices – Asian Elegance Redefined</p>
+            <p style="font-size: 14px;">🇵🇰 Pakistani | 🇮🇳 Indian | 🇧🇩 Bengali</p>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <a href="#clothing-women" class="btn" style="margin: 5px;">Women's Collection</a>
+            <a href="#clothing-men" class="btn btn-outline" style="margin: 5px;">Men's Collection</a>
+        </div>
+
+        <!-- Women's Collection -->
+        <h3 id="clothing-women" style="margin-bottom: 30px;">👩 Women's Collection</h3>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <div>👗</div>
+                    <span class="product-badge">Best Seller</span>
+                </div>
+                <div class="product-info">
+                    <span class="origin-badge">🇵🇰 Pakistani</span>
+                    <div class="product-category">Lawn Collection</div>
+                    <h4 class="product-title">Pakistani Embroidered Lawn Suit</h4>
+                    <div class="product-features">
+                        <span class="feature-tag">Printed</span>
+                        <span class="feature-tag">Embroidered</span>
+                        <span class="feature-tag">Breathable</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-note">💰 Reasonable Price</span>
+                        <button class="btn-small btn" onclick="alert('Contact us for pricing! Email: info@abobadatorrida.com')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <div>👘</div>
+                    <span class="product-badge">Premium</span>
+                </div>
+                <div class="product-info">
+                    <span class="origin-badge">🇮🇳 Indian</span>
+                    <div class="product-category">Sarees</div>
+                    <h4 class="product-title">Banarasi / Silk Saree</h4>
+                    <div class="product-features">
+                        <span class="feature-tag">Banarasi</span>
+                        <span class="feature-tag">Silk</span>
+                        <span class="feature-tag">Premium Weave</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-note">💰 Reasonable Price</span>
+                        <button class="btn-small btn" onclick="alert('Contact us for pricing! Email: info@abobadatorrida.com')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <div>💃</div>
+                    <span class="product-badge">Wedding</span>
+                </div>
+                <div class="product-info">
+                    <span class="origin-badge">🇮🇳 Indian</span>
+                    <div class="product-category">Lehenga Choli</div>
+                    <h4 class="product-title">Wedding Lehenga Choli</h4>
+                    <div class="product-features">
+                        <span class="feature-tag">Mirror Work</span>
+                        <span class="feature-tag">Gota Patti</span>
+                        <span class="feature-tag">Festive</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-note">💰 Reasonable Price</span>
+                        <button class="btn-small btn" onclick="alert('Contact us for pricing! Email: info@abobadatorrida.com')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <div>🥻</div>
+                </div>
+                <div class="product-info">
+                    <span class="origin-badge">🇧🇩 Bengali</span>
+                    <div class="product-category">Tant Saree</div>
+                    <h4 class="product-title">Bengali Tant Cotton Saree</h4>
+                    <div class="product-features">
+                        <span class="feature-tag">Cotton</span>
+                        <span class="feature-tag">Handloom</span>
+                        <span class="feature-tag">Lightweight</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-note">💰 Reasonable Price</span>
+                        <button class="btn-small btn" onclick="alert('Contact us for pricing! Email: info@abobadatorrida.com')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Men's Collection -->
+        <h3 id="clothing-men" style="margin: 50px 0 30px;">👨 Men's Collection</h3>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <div>👔</div>
+                </div>
+                <div class="product-info">
+                    <span class="origin-badge">🇵🇰 Pakistani</span>
+                    <div class="product-category">Shalwar Kameez</div>
+                    <h4 class="product-title">Pakistani Shalwar Kameez</h4>
+                    <div class="product-features">
+                        <span class="feature-tag">Cotton</span>
+                        <span class="feature-tag">Cambric</span>
+                        <span class="feature-tag">Stitched</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-note">💰 Reasonable Price</span>
+                        <button class="btn-small btn" onclick="alert('Contact us for pricing! Email: info@abobadatorrida.com')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <div>🎽</div>
+                    <span class="product-badge">Wedding</span>
+                </div>
+                <div class="product-info">
+                    <span class="origin-badge">🇵🇰 Pakistani</span>
+                    <div class="product-category">Waistcoat</div>
+                    <h4 class="product-title">Embroidered Waistcoat</h4>
+                    <div class="product-features">
+                        <span class="feature-tag">Hand Embroidery</span>
+                        <span class="feature-tag">Premium Look</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-note">💰 Reasonable Price</span>
+                        <button class="btn-small btn" onclick="alert('Contact us for pricing! Email: info@abobadatorrida.com')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <div>👘</div>
+                </div>
+                <div class="product-info">
+                    <span class="origin-badge">🇮🇳 Indian</span>
+                    <div class="product-category">Kurta Pajama</div>
+                    <h4 class="product-title">Indian Kurta Pajama Set</h4>
+                    <div class="product-features">
+                        <span class="feature-tag">Cotton Blend</span>
+                        <span class="feature-tag">Silk Blend</span>
+                        <span class="feature-tag">Festive</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-note">💰 Reasonable Price</span>
+                        <button class="btn-small btn" onclick="alert('Contact us for pricing! Email: info@abobadatorrida.com')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <div>📏</div>
+                </div>
+                <div class="product-info">
+                    <span class="origin-badge">✨ ABB</span>
+                    <div class="product-category">Unstitched Fabric</div>
+                    <h4 class="product-title">Premium Unstitched Fabric</h4>
+                    <div class="product-features">
+                        <span class="feature-tag">2.5m - 3m</span>
+                        <span class="feature-tag">Premium Quality</span>
+                        <span class="feature-tag">Customizable</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="price-note">💰 Reasonable Price</span>
+                        <button class="btn-small btn" onclick="alert('Contact us for pricing! Email: info@abobadatorrida.com')">Inquire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why ABB Boutique -->
+        <div style="margin-top: 60px; text-align: center;">
+            <h3>Why ABB Boutique?</h3>
+            <div class="features-grid" style="margin-top: 30px;">
+                <div class="feature-card">✅ Best Quality - 100% Authentic Asian Fabrics</div>
+                <div class="feature-card">💰 Reasonable Prices - Direct Sourcing</div>
+                <div class="feature-card">🌍 Worldwide Shipping Available</div>
+                <div class="feature-card">✂️ Custom Stitching Available</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section>
+    <div class="container">
+        <div class="section-title">
+            <h2>Why Choose Abobada Torrida?</h2>
+            <p>Unique advantages that set us apart</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">⚖️ Legal Assurance - Partnered with established law firms</div>
+            <div class="feature-card">🇪🇺 European Gateway - Strategic Lisbon location</div>
+            <div class="feature-card">🔄 One-Stop Solution - All services under one roof</div>
+            <div class="feature-card">⚡ Rapid Results - Efficient processes, faster outcomes</div>
+            <div class="feature-card">🌐 Multilingual Team - Expert consultants in multiple languages</div>
+            <div class="feature-card">🎯 Personalized Approach - Customized solutions for your needs</div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" style="background-color: var(--light-bg);">
+    <div class="container">
+        <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Ready to transform your business? Get in touch with us today</p>
+        </div>
+        <div style="text-align: center;">
+            <div style="margin-bottom: 30px;">
+                <p>📞 <strong>Phone:</strong> +351 920 317 545</p>
+                <p>✉️ <strong>Email:</strong> info@abobadatorrida.com</p>
+                <p>📍 <strong>Location:</strong> Lisbon, Portugal</p>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <div style="background: white; padding: 20px; border-radius: 8px; min-width: 200px;">
+                    <div style="font-size: 30px;">📊</div>
+                    <h4>Consultancy</h4>
+                    <p>info@abobadatorrida.com</p>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 8px; min-width: 200px;">
+                    <div style="font-size: 30px;">👗</div>
+                    <h4>ABB Boutique</h4>
+                    <p>boutique@abobadatorrida.com</p>
+                </div>
+                <div style="background: white; padding: 20px; border-radius: 8px; min-width: 200px;">
+                    <div style="font-size: 30px;">✈️</div>
+                    <h4>Travel & Transport</h4>
+                    <p>travel@abobadatorrida.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Abobada Torrida</h3>
+                <p>Your trusted business partner in Lisbon, Portugal</p>
+                <div class="social-links">
+                    <a href="#">📘</a>
+                    <a href="#">📷</a>
+                    <a href="#">▶️</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#">Services <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content">
-                            <a href="consultancy.html">Consultancy Services</a>
-                            <a href="it-services.html">IT Services</a>
-                            <a href="transportation.html">Transportation Services</a>
-                            <a href="travel-tour.html">Travel & Tour Services</a>
-                            <a href="import-export.html">Import & Export Services</a>
-                        </div>
-                    </li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#clothing">Clothing</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Your Gateway to Global Success</h1>
-            <p>Abobada Torrida provides comprehensive business solutions from Lisbon, Portugal - Your trusted partner for consultancy, IT, transportation, travel, and international trade services.</p>
-            <a href="contact.html" class="btn">Start Your Journey</a>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <h2>Why Businesses Choose Us</h2>
-            <p>Proven results and trusted partnerships</p>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">500+</div>
-                    <h3>Happy Clients</h3>
-                    <p>Successful partnerships worldwide</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <h3>Years Experience</h3>
-                    <p>Industry expertise and knowledge</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <h3>Countries Served</h3>
-                    <p>Global reach and presence</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">24/7</div>
-                    <h3>Support</h3>
-                    <p>Always here for our clients</p>
-                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#">Consultancy</a></li>
+                    <li><a href="#">IT Services</a></li>
+                    <li><a href="#">Transportation</a></li>
+                    <li><a href="#">Travel & Tour</a></li>
+                    <li><a href="#">Import & Export</a></li>
+                    <li><a href="#">ABB Boutique</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li>📞 +351 920 317 545</li>
+                    <li>✉️ info@abobadatorrida.com</li>
+                    <li>📍 Lisbon, Portugal</li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- Mission & Vision Section -->
-    <section class="mission-vision">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Core Philosophy</h2>
-                <p>Driving success through purpose and vision</p>
-            </div>
-            <div class="mv-container">
-                <div class="mv-card">
-                    <div class="mv-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h3>Our Mission</h3>
-                    <p>To empower businesses and individuals with comprehensive, innovative solutions that bridge Portugal with global opportunities. We strive to be the trusted partner that simplifies complexity and accelerates success in international markets.</p>
-                    <ul style="text-align: left; margin-top: 20px;">
-                        <li>Provide end-to-end business solutions</li>
-                        <li>Simplify international expansion</li>
-                        <li>Deliver exceptional client experiences</li>
-                        <li>Foster sustainable growth partnerships</li>
-                    </ul>
-                </div>
-                <div class="mv-card">
-                    <div class="mv-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h3>Our Vision</h3>
-                    <p>To be Lisbon's premier gateway for global business success, recognized for transforming ambitions into achievements and creating lasting value for our clients across continents.</p>
-                    <ul style="text-align: left; margin-top: 20px;">
-                        <li>Global business connector</li>
-                        <li>Innovation-driven solutions</li>
-                        <li>Trusted industry leader</li>
-                        <li>Sustainable impact creator</li>
-                    </ul>
-                </div>
-                <div class="mv-card">
-                    <div class="mv-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Our Values</h3>
-                    <p>Integrity, Excellence, Innovation, and Partnership guide every decision we make and every service we deliver.</p>
-                    <ul style="text-align: left; margin-top: 20px;">
-                        <li><strong>Integrity:</strong> Honest and transparent in all dealings</li>
-                        <li><strong>Excellence:</strong> Superior quality in every service</li>
-                        <li><strong>Innovation:</strong> Creative solutions for modern challenges</li>
-                        <li><strong>Partnership:</strong> Collaborative approach to success</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="copyright">
+            <p>&copy; 2024 Abobada Torrida. All rights reserved. | Your Gateway to Global Success</p>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <!-- Services Section -->
-    <section class="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Comprehensive Services</h2>
-                <p>End-to-end solutions for all your business needs</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Consultancy Services</h3>
-                    <p>Strategic business consulting, international student services, work permits, and legal advisory through our partnered law firm.</p>
-                    <a href="consultancy.html" class="btn">Explore More</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>IT Services</h3>
-                    <p>Complete IT solutions including software development, cybersecurity, cloud migration, and digital transformation services.</p>
-                    <a href="it-services.html" class="btn">Explore More</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-truck"></i>
-                    </div>
-                    <h3>Transportation Services</h3>
-                    <p>Reliable and efficient transportation solutions for goods and personnel with nationwide coverage and international connections.</p>
-                    <a href="transportation.html" class="btn">Explore More</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-plane"></i>
-                    </div>
-                    <h3>Travel & Tour Services</h3>
-                    <p>Customized travel packages, corporate travel management, and unique tour experiences tailored to your preferences.</p>
-                    <a href="travel-tour.html" class="btn">Explore More</a>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Import & Export Services</h3>
-                    <p>Streamlined international trade solutions including customs clearance, logistics, and market entry strategies.</p>
-                    <a href="import-export.html" class="btn">Explore More</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu').addEventListener('click', function() {
+        document.querySelector('nav ul').classList.toggle('show');
+    });
+</script>
 
-    <!-- Unique Selling Points -->
-    <section class="usp">
-        <div class="container">
-            <div class="section-title">
-                <h2>Why Choose Abobada Torrida?</h2>
-                <p>Unique advantages that set us apart</p>
-            </div>
-            <div class="usp-grid">
-                <div class="usp-card">
-                    <div class="usp-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Legal Assurance</h3>
-                    <p>Partnered with established law firms for complete legal compliance and protection</p>
-                </div>
-                <div class="usp-card">
-                    <div class="usp-icon">
-                        <i class="fas fa-globe-europe"></i>
-                    </div>
-                    <h3>European Gateway</h3>
-                    <p>Strategic Lisbon location providing perfect access to European and global markets</p>
-                </div>
-                <div class="usp-card">
-                    <div class="usp-icon">
-                        <i class="fas fa-infinity"></i>
-                    </div>
-                    <h3>One-Stop Solution</h3>
-                    <p>From student visas to business expansion - all services under one roof</p>
-                </div>
-                <div class="usp-card">
-                    <div class="usp-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>Rapid Results</h3>
-                    <p>Efficient processes that deliver faster outcomes without compromising quality</p>
-                </div>
-                <div class="usp-card">
-                    <div class="usp-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Multilingual Team</h3>
-                    <p>Expert consultants fluent in multiple languages for seamless global communication</p>
-                </div>
-                <div class="usp-card">
-                    <div class="usp-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h3>Personalized Approach</h3>
-                    <p>Customized solutions tailored to your specific needs and goals</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Client Showcase -->
-    <section class="clients">
-        <div class="container">
-            <div class="section-title">
-                <h2>Trusted by Industry Leaders</h2>
-                <p>Partnering with businesses across multiple sectors</p>
-            </div>
-            <div class="client-logos">
-                <div class="client-logo">Technology Partners</div>
-                <div class="client-logo">Educational Institutions</div>
-                <div class="client-logo">Logistics Networks</div>
-                <div class="client-logo">International Corporations</div>
-                <div class="client-logo">Government Agencies</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Business?</h2>
-                <p>Join hundreds of successful clients who have expanded their horizons with Abobada Torrida. Let's build your success story together.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-light">Start Your Project</a>
-                    <a href="about.html" class="btn btn-outline-light">Learn About Us</a>
-                </div>
-                <div style="margin-top: 30px; font-size: 0.9rem;">
-                    <p><i class="fas fa-phone" style="margin-right: 10px;"></i> Need immediate assistance? Call +351 920 317 545</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Abobada Torrida</h3>
-                    <p>Your trusted partner for comprehensive business solutions in Lisbon, Portugal.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="consultancy.html">Consultancy Services</a></li>
-                        <li><a href="it-services.html">IT Services</a></li>
-                        <li><a href="transportation.html">Transportation Services</a></li>
-                        <li><a href="travel-tour.html">Travel & Tour Services</a></li>
-                        <li><a href="import-export.html">Import & Export Services</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Lisbon, Portugal</li>
-                        <li><i class="fas fa-phone"></i> +351 920 317 545</li>
-                        <li><i class="fas fa-envelope"></i> info@abobadatorrida.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Abobada Torrida. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Your existing JavaScript remains the same
-    </script>
 </body>
 </html>
