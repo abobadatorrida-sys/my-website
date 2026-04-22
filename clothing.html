@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABB Boutique - Best Quality Clothing | Asian Elegance Redefined</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles specific to clothing page - keeps same theme */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-image {
+            height: 280px;
+            background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-category {
+            color: var(--primary-color);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        
+        .product-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+        
+        .product-desc {
+            font-size: 14px;
+            color: var(--gray-medium);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .feature-tag {
+            background: var(--light-bg);
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            color: var(--secondary-color);
+        }
+        
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .price-note {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 13px;
+        }
+        
+        .category-section {
+            margin-bottom: 60px;
+        }
+        
+        .category-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary-color);
+            display: inline-block;
+        }
+        
+        .value-badge {
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .value-badge:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .value-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+        
+        .origin-badge {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .category-filter {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 6px 16px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section (Same as your existing website) -->
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <h1>ABB <span>Boutique</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="#">Products ▼</a>
+                    <div class="dropdown-content">
+                        <a href="clothing.html">Women's Collection</a>
+                        <a href="clothing.html#men">Men's Collection</a>
+                        <a href="clothing.html#fabrics">Unstitched Fabric</a>
+                    </div>
+                </li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu">☰</div>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+    <div class="container">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>Clothing Collection</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="about-hero" style="padding: 100px 0 60px;">
+    <div class="container">
+        <h1>ABB Boutique Collection</h1>
+        <p>Best Quality, Reasonable Prices – Asian Elegance Redefined</p>
+        <p style="font-size: 16px;">🇵🇰 Pakistani | 🇮🇳 Indian | 🇧🇩 Bengali</p>
+    </div>
+</section>
+
+<!-- Company Overview Banner -->
+<section style="padding: 40px 0 0;">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>AbobadaTorrida Boutique</h2>
+                <h3 style="color: var(--primary-color);">ABB Boutique</h3>
+                <p>Welcome to <strong>AbobadaTorrida Boutique (ABB Boutique)</strong> – your premier destination for authentic Asian clothing. We specialize in <strong>Pakistani, Indian, and Bengali</strong> stitched and unstitched clothing for both men and women.</p>
+                <p>Our promise: <strong>Best Quality, Reasonable Prices</strong>. We source directly from Lahore, Delhi, and Dhaka to bring you the finest fabrics and craftsmanship at prices that won't break the bank.</p>
+                <div class="d-flex" style="gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                    <span class="feature-tag">✅ 100% Authentic</span>
+                    <span class="feature-tag">✅ Worldwide Shipping</span>
+                    <span class="feature-tag">✅ Custom Stitching</span>
+                    <span class="feature-tag">✅ Easy Returns</span>
+                </div>
+            </div>
+            <div class="about-image">
+                <div style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); padding: 40px; border-radius: 8px; text-align: center; color: white;">
+                    <div style="font-size: 60px;">👗</div>
+                    <h3>ABB Boutique</h3>
+                    <p>Asian Elegance Redefined</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Women's Collection -->
+<section id="women" style="padding: 60px 0;">
+    <div class="container">
+        <div class="category-section">
+            <h2 class="category-title">👩 Women's Collection</h2>
+            
+            <div class="products-grid">
+                <!-- Pakistani Lawn Suits -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #a8edea, #fed6e3); display: flex; align-items: center; justify-content: center; font-size: 50px;">👗</div>
+                        <span class="product-badge">Best Seller</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="origin-badge">🇵🇰 Pakistani</span>
+                        <div class="product-category">Lawn Collection</div>
+                        <h3 class="product-title">Pakistani Embroidered Lawn Suit</h3>
+                        <p class="product-desc">Breathable premium lawn with delicate thread embroidery. Summer-friendly and perfect for daily wear.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Printed</span>
+                            <span class="feature-tag">Embroidered</span>
+                            <span class="feature-tag">Breathable</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pakistani Embroidered Khaddar -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #d4fc79, #96e6a1); display: flex; align-items: center; justify-content: center; font-size: 50px;">🧥</div>
+                        <span class="product-badge">Winter Special</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="origin-badge">🇵🇰 Pakistani</span>
+                        <div class="product-category">Khaddar Collection</div>
+                        <h3 class="product-title">Embroidered Khaddar Suit</h3>
+                        <p class="product-desc">Heavy embroidery on durable khaddar fabric. Perfect for winter weddings and formal events.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Heavy Embroidery</span>
+                            <span class="feature-tag">Durable</span>
+                            <span class="feature-tag">Winter Wear</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indian Sarees -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #fa709a, #fee140); display: flex; align-items: center; justify-content: center; font-size: 50px;">👘</div>
+                        <span class="product-badge">Premium</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="origin-badge">🇮🇳 Indian</span>
+                        <div class="product-category">Sarees</div>
+                        <h3 class="product-title">Banarasi / Silk Saree</h3>
+                        <p class="product-desc">Premium weave sarees with fall & pico included. Available in Banarasi and pure silk varieties.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Banarasi</span>
+                            <span class="feature-tag">Silk</span>
+                            <span class="feature-tag">Fall & Pico Included</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indian Lehenga Choli -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ff9a9e, #fecfef); display: flex; align-items: center; justify-content: center; font-size: 50px;">💃</div>
+                        <span class="product-badge">Wedding Special</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="origin-badge">🇮🇳 Indian</span>
+                        <div class="product-category">Lehenga Choli</div>
+                        <h3 class="product-title">Wedding Lehenga Choli</h3>
+                        <p class="product-desc">Rich colors with mirror work and gota patti. Perfect for weddings and festive occasions.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Mirror Work</span>
+                            <span class="feature-tag">Gota Patti</span>
+                            <span class="feature-tag">Festive</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bengali Tant Saree -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #a1c4fd, #c2e9fb); display: flex; align-items: center; justify-content: center; font-size: 50px;">🥻</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="origin-badge">🇧🇩 Bengali</span>
+                        <div class="product-category">Tant Saree</div>
+                        <h3 class="product-title">Bengali Tant Cotton Saree</h3>
+                        <p class="product-desc">Lightweight, handloom cotton saree. Authentic Bengali weave for daily wear elegance.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Cotton</span>
+                            <span class="feature-tag">Handloom</span>
+                            <span class="feature-tag">Lightweight</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bengali Muslin Jamdani -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #e0c3fc, #8ec5fc); display: flex; align-items: center; justify-content: center; font-size: 50px;">✨</div>
+                        <span class="product-badge">Heritage</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="origin-badge">🇧🇩 Bengali</span>
+                        <div class="product-category">Muslin Jamdani</div>
+                        <h3 class="product-title">Bengali Muslin Jamdani Saree</h3>
+                        <p class="product-desc">Handwoven motifs on semi-sheer fabric. Heritage quality passed down through generations.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Handwoven</span>
+                            <span class="feature-tag">Semi-sheer</span>
+                            <span class="feature-tag">Heritage Quality</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ABB Stitched Suits -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #fbc2eb, #a6c1ee); display: flex; align-items: center; justify-content: center; font-size: 50px;">👚</div>
+                        <span class="product-badge">Ready to Wear</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="origin-badge">✨ ABB Fusion</span>
+                        <div class="product-category">Ready to Wear</div>
+                        <h3 class="product-title">ABB Stitched Fusion Suit</h3>
+                        <p class="product-desc">Indo-western cuts with perfect fitting. Ready to wear - just unpack and style!</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Fusion</span>
+                            <span class="feature-tag">Perfect Fitting</span>
+                            <span class="feature-tag">Ready to Wear</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Men's Collection -->
+<section id="men" style="padding: 0 0 60px 0; background-color: var(--light-bg);">
+    <div class="container">
+        <div class="category-section">
+            <h2 class="category-title">👨 Men's Collection</h2>
+            
+            <div class="products-grid">
+                <!-- Pakistani Shalwar Kameez -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #e0eafc, #cfdef3); display: flex; align-items: center; justify-content: center; font-size: 50px;">👔</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="origin-badge">🇵🇰 Pakistani</span>
+                        <div class="product-category">Shalwar Kameez</div>
+                        <h3 class="product-title">Pakistani Shalwar Kameez</h3>
+                        <p class="product-desc">Premium cotton/cambric fabric. Available in slim and classic fit, fully stitched.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Cotton</span>
+                            <span class="feature-tag">Cambric</span>
+                            <span class="feature-tag">Stitched</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pakistani Embroidered Waistcoat -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #f5af19, #f12711); display: flex; align-items: center; justify-content: center; font-size: 50px;">🎽</div>
+                        <span class="product-badge">Wedding Wear</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="origin-badge">🇵🇰 Pakistani</span>
+                        <div class="product-category">Waistcoat</div>
+                        <h3 class="product-title">Embroidered Waistcoat</h3>
+                        <p class="product-desc">Hand embroidery on premium fabric. Perfect for weddings and formal events.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Hand Embroidery</span>
+                            <span class="feature-tag">Premium Look</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indian Kurta Pajama -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #fccb90, #d57eeb); display: flex; align-items: center; justify-content: center; font-size: 50px;">👘</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="origin-badge">🇮🇳 Indian</span>
+                        <div class="product-category">Kurta Pajama</div>
+                        <h3 class="product-title">Indian Kurta Pajama Set</h3>
+                        <p class="product-desc">Cotton/silk blend fabric. Elegant design perfect for festive occasions.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Cotton Blend</span>
+                            <span class="feature-tag">Silk Blend</span>
+                            <span class="feature-tag">Festive</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bengali Fatua / Punjabi -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #89f7fe, #66a6ff); display: flex; align-items: center; justify-content: center; font-size: 50px;">🥻</div>
+                    </div>
+                    <div class="product-info">
+                        <span class="origin-badge">🇧🇩 Bengali</span>
+                        <div class="product-category">Fatua / Punjabi</div>
+                        <h3 class="product-title">Bengali Fatua / Punjabi</h3>
+                        <p class="product-desc">Linen/cotton fabric. Lightweight and perfect for everyday elegance.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Linen</span>
+                            <span class="feature-tag">Cotton</span>
+                            <span class="feature-tag">Lightweight</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Unstitched Fabric Section -->
+<section id="fabrics" style="padding: 60px 0;">
+    <div class="container">
+        <div class="category-section">
+            <h2 class="category-title">🧵 Unstitched Fabric Collection</h2>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ddd6f3, #faaca8); display: flex; align-items: center; justify-content: center; font-size: 50px;">📏</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Premium Suiting Material</div>
+                        <h3 class="product-title">ABB Men's Unstitched Fabric</h3>
+                        <p class="product-desc">2.5m – 3m premium suiting material. Customize your perfect fit with our tailoring service.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">2.5m - 3m</span>
+                            <span class="feature-tag">Premium Quality</span>
+                            <span class="feature-tag">Customizable</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #ffe259, #ffa751); display: flex; align-items: center; justify-content: center; font-size: 50px;">🧵</div>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Women's Unstitched</div>
+                        <h3 class="product-title">Premium Lawn & Khaddar Fabric</h3>
+                        <p class="product-desc">Choose from our wide range of unstitched fabrics. Get custom stitching as per your measurements.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Lawn</span>
+                            <span class="feature-tag">Khaddar</span>
+                            <span class="feature-tag">Custom Stitching</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price-note">💰 Reasonable Price</span>
+                            <button class="btn btn-small">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose ABB Boutique -->
+<section style="padding: 60px 0; background-color: var(--light-bg);">
+    <div class="container">
+        <div class="section-title">
+            <h2>Why Choose ABB Boutique?</h2>
+            <p>Your trusted partner for authentic Asian clothing</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="value-badge">
+                <div class="value-icon">✅</div>
+                <h3>Best Quality</h3>
+                <p>100% authentic Asian fabrics - lawn, khaddar, silk, muslin, tant</p>
+            </div>
+            
+            <div class="value-badge">
+                <div class="value-icon">💰</div>
+                <h3>Reasonable Prices</h3>
+                <p>Direct sourcing from Lahore, Delhi, and Dhaka</p>
+            </div>
+            
+            <div class="value-badge">
+                <div class="value-icon">🌍</div>
+                <h3>Worldwide Shipping</h3>
+                <p>Available globally with tracking</p>
+            </div>
+            
+            <div class="value-badge">
+                <div class="value-icon">✂️</div>
+                <h3>Custom Stitching</h3>
+                <p>Available for women's suits & men's kameez</p>
+            </div>
+            
+            <div class="value-badge">
+                <div class="value-icon">🔄</div>
+                <h3>Easy Returns</h3>
+                <p>Customer-friendly return policy</p>
+            </div>
+            
+            <div class="value-badge">
+                <div class="value-icon">⭐</div>
+                <h3>Customer Satisfaction</h3>
+                <p>Thousands of happy customers worldwide</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section style="padding: 60px 0;">
+    <div class="container">
+        <div class="about-content" style="background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-radius: 15px; padding: 50px; color: white; text-align: center;">
+            <div style="flex: 1;">
+                <h2 style="color: white;">Ready to Shop?</h2>
+                <p style="color: rgba(255,255,255,0.9);">Contact us for orders, custom stitching inquiries, or bulk purchases</p>
+                <a href="contact.html" class="btn" style="background: white; color: var(--primary-color); margin-top: 20px;">Contact Us Today</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>ABB Boutique</h3>
+                <p>Best Quality, Reasonable Prices – Asian Elegance Redefined</p>
+                <div class="social-links">
+                    <a href="#">📘</a>
+                    <a href="#">📷</a>
+                    <a href="#">▶️</a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="clothing.html">Clothing Collection</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Collections</h3>
+                <ul>
+                    <li><a href="clothing.html#women">Women's Collection</a></li>
+                    <li><a href="clothing.html#men">Men's Collection</a></li>
+                    <li><a href="clothing.html#fabrics">Unstitched Fabric</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Info</h3>
+                <ul>
+                    <li>📞 +1 234 567 890</li>
+                    <li>✉️ info@abbboutique.com</li>
+                    <li>🌍 www.abbboutique.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 AbobadaTorrida Boutique (ABB Boutique). All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-menu').addEventListener('click', function() {
+        document.querySelector('nav ul').classList.toggle('show');
+    });
+    
+    // Simple product view alert (you can replace with actual functionality)
+    document.querySelectorAll('.btn-small').forEach(btn => {
+        btn.addEventListener('click', function() {
+            alert('Product inquiry form will open here. Contact us for pricing and availability!');
+        });
+    });
+</script>
+
+</body>
+</html>
